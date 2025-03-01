@@ -1,8 +1,21 @@
-# Microservice Template
-A template with an automatic workflow for building & publishing Docker Images
+# AuthService
 
-## Usage
-1. Configure the personal access token under the CR_PAT variable in the GitHub Actions Secrets
-2. On push, the workflow will run and 
-    - Build the Docker image
-    - Publish the Docker image under USERNAME/REPO_NAME:COMMIT_SHA to the GHCR (not Docker hub)
+**TODO: Add description**
+
+## Installation
+
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+by adding `auth_service` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:auth_service, "~> 0.1.0"}
+  ]
+end
+```
+
+Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+be found at <https://hexdocs.pm/auth_service>.
+
