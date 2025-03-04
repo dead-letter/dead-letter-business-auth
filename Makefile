@@ -1,5 +1,5 @@
 PB_DIR_IN=../dead-letter-manifests/protos
-PB_DIR_OUT=./protobuf
+PB_DIR_OUT=./pkg/pb
 PROTOC=$(shell which protoc)
 
 ## help: print this help message
@@ -7,6 +7,21 @@ PROTOC=$(shell which protoc)
 help:
 	@echo "Usage:"
 	@sed -n "s/^##//p" ${MAKEFILE_LIST} | column -t -s ":" |  sed -e "s/^/ /"
+
+
+## audit: tidy dependencies and format, vet and test all code
+.PHONY: audit
+audit:
+	@echo "Tidying and verifying module dependencies..."
+	go mod tidy
+	go mod verify
+	@echo "Formatting code..."
+	go fmt ./...
+	@echo "Vetting code..."
+	go vet ./...
+	go tool staticcheck ./...
+	@echo "Running tests..."
+	go test -race -vet=off ./...
 
 
 # proto/check: check for necessary build tools and directories
