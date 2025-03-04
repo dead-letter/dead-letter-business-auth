@@ -21,9 +21,16 @@ defmodule AuthService.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug_cowboy, "~> 2.6"},  # HTTP server
-      {:redix, "~> 1.2"},        # Redis client
-      {:grpc, "~> 0.6.0"}        # gRPC support
+      # HTTP server
+      {:plug_cowboy, "~> 2.6"},
+      # Redis client
+      {:redix, "~> 1.2"},
+      # gRPC support
+      {:grpc, "~> 0.6.0"},
+      {:protobuf, "~> 0.14.1"}
     ]
   end
+
+  defp elixirc_paths(:dev), do: ["lib", ".formatter_plugins"]
+  defp elixirc_paths(_), do: ["lib"]
 end

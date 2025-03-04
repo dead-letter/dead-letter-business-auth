@@ -1,18 +1,14 @@
 defmodule AuthService do
-  @moduledoc """
-  Documentation for `AuthService`.
-  """
+  use Plug.Router
 
-  @doc """
-  Hello world.
+  plug(:match)
+  plug(:dispatch)
 
-  ## Examples
+  get "/" do
+    send_resp(conn, 200, "auth service running")
+  end
 
-      iex> AuthService.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  match _ do
+    send_resp(conn, 404, "Not Found")
   end
 end

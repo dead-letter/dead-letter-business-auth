@@ -2,6 +2,13 @@
 
 **TODO: Add description**
 
+**TODO**: update K8s manifest:
+```
+ENV MIX_ENV=prod \
+    PORT=4000
+```
+
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
