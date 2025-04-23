@@ -40,7 +40,7 @@ proto/gen: proto/check
 	@$(PROTOC) -I $(PB_DIR_IN) \
 			--go_out=$(PB_DIR_OUT) --go_opt=paths=source_relative \
 	        --go-grpc_out=$(PB_DIR_OUT) --go-grpc_opt=paths=source_relative \
-	        $(PB_DIR_IN)/data.proto
+	        $(PB_DIR_IN)/*.proto
 	@echo "✅ Generated gRPC code for data.proto"
 
 
